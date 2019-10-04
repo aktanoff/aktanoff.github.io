@@ -13,7 +13,7 @@ body {
 
 .poster {
   background: url("./img/figures.png") center bottom no-repeat, #fff;
-  margin: 40px auto 0 auto;
+  margin: 40px auto 40px auto;
   width: 1100px;
   box-sizing: border-box;
   padding: 96px 0 500px 82px;
