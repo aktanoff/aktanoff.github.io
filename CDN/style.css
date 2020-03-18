@@ -4,6 +4,10 @@ html {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -22,8 +26,8 @@ html {
 }
 
 .header a.logo {
-  text-decoration: none;
   display: flex;
+  align-items: center;
 }
 
 .header a.logo img:first-child {
@@ -84,7 +88,7 @@ html {
 .adventure__hashtag {
   margin: 10px 8px 0 0;
   display: inline-block;
-  text-decoration: none;
+
   background: #b3b3b3;
   border-radius: 4px;
   font-size: 18px;
