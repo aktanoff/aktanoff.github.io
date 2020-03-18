@@ -10,11 +10,6 @@ a {
   text-decoration: none;
 }
 
-a:visited,
-a:active {
-  color: #000000;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -81,6 +76,10 @@ a:active {
   font-size: 30px;
   line-height: 15px;
   margin-bottom: 10px;
+}
+
+.adventure__name a {
+  color: #000000;
 }
 
 .adventure__description {
