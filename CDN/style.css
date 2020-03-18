@@ -107,10 +107,12 @@ a {
 }
 
 .scene__descriptionText {
+  width: 700px;
   position: absolute;
   font-size: 22px;
   line-height: 38px;
   color: #ffffff;
+  white-space: pre-line;
 }
 
 .scene__descriptionText--top_left {
