@@ -21,8 +21,13 @@ html {
   box-sizing: border-box;
 }
 
-.header a {
+.header a.logo {
   text-decoration: none;
+  display: flex;
+}
+
+.header a.logo img:first-child {
+  margin-right: 4px;
 }
 
 .header__line {
