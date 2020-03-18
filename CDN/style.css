@@ -5,7 +5,18 @@ html {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout {
+  width: 1024px;
+}
+
+.header {
+  height: 95px;
+  padding: 30px 57px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #959393;
 }
