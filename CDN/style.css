@@ -146,8 +146,8 @@ a {
 .scene__achievements {
   margin-top: 37px;
   display: grid;
-  grid-template-columns: 480px 480px;
-  grid-gap: 15px 15px;
+  grid-template-columns: 495px 495px;
+  grid-gap: 10px 10px;
 }
 
 .achievement {
@@ -161,7 +161,7 @@ a {
 }
 
 .achievement .achievement_main {
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .achievement__got {
