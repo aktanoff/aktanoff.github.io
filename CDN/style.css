@@ -161,13 +161,13 @@ a {
 }
 
 .achievement .achievement_main {
-  margin-left: 5px;
+  margin-left: 12px;
 }
 
 .achievement__got {
   font-family: Gabriela;
-  font-size: 30px;
-  line-height: 38px;
+  font-size: 28px;
+  line-height: 35px;
 }
 
 .achievement__text {
