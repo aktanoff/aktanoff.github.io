@@ -112,6 +112,7 @@ a {
 .scene__description {
   position: relative;
   width: 950px;
+  height: 380px;
 }
 
 .scene__descriptionText {
