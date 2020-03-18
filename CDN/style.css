@@ -2,6 +2,8 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-style: normal;
+  font-weight: normal;
 }
 
 a {
@@ -41,6 +43,7 @@ a {
 
 .hashtag {
   margin: 25px 60px -15px;
+  font-family: Gabriela;
   font-size: 42px;
   line-height: 15px;
   color: #000000;
@@ -69,12 +72,14 @@ a {
 }
 
 .adventure__name {
+  font-family: Gabriela;
   font-size: 30px;
   line-height: 15px;
   margin-bottom: 10px;
 }
 
 .adventure__description {
+  font-family: Gabriela;
   font-size: 18px;
   line-height: 28px;
   white-space: pre-line;
@@ -88,9 +93,9 @@ a {
 .adventure__hashtag {
   margin: 10px 8px 0 0;
   display: inline-block;
-
   background: #b3b3b3;
   border-radius: 4px;
+  font-family: Roboto;
   font-size: 18px;
   text-align: center;
   padding: 10px 18px;
@@ -109,6 +114,7 @@ a {
 .scene__descriptionText {
   width: 700px;
   position: absolute;
+  font-family: Gabriela;
   font-size: 22px;
   line-height: 38px;
   color: #ffffff;
@@ -157,11 +163,13 @@ a {
 }
 
 .achievement__got {
+  font-family: Gabriela;
   font-size: 30px;
   line-height: 38px;
 }
 
 .achievement__text {
+  font-family: Gabriela;
   font-size: 48px;
   line-height: 38px;
 }
@@ -177,6 +185,7 @@ a {
   display: inline-block;
   background: #555555;
   border-radius: 4px;
+  font-family: Roboto;
   font-size: 34px;
   line-height: 38px;
   text-align: center;
