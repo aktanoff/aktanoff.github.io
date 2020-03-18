@@ -11,13 +11,13 @@ html {
 }
 
 .layout {
-  width: 1024px;
+  width: 1000px;
 }
 
 .header {
   width: 1024px;
   height: 95px;
-  padding: 23px 57px;
+  padding: 23px 37px;
   box-sizing: border-box;
 }
 
@@ -28,4 +28,12 @@ html {
 .header__line {
   width: 100%;
   border-bottom: 1px solid #959393;
+}
+
+.adventures {
+  margin-top: 5px;
+}
+
+.adventures .adventure {
+  margin: 45px 0 0 60px;
 }
