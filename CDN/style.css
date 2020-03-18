@@ -15,8 +15,17 @@ html {
 }
 
 .header {
+  width: 1024px;
   height: 95px;
-  padding: 30px 57px;
+  padding: 23px 57px;
   box-sizing: border-box;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header__line {
+  width: 100%;
   border-bottom: 1px solid #959393;
 }
