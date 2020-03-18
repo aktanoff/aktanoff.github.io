@@ -108,6 +108,9 @@ a {
 
 .scene__descriptionText {
   position: absolute;
+  font-size: 22px;
+  line-height: 38px;
+  color: #ffffff;
 }
 
 .scene__descriptionText--top_left {
@@ -133,7 +136,7 @@ a {
 .scene__achievements {
   margin-top: 37px;
   display: grid;
-  grid-template-columns: 450px 450px;
+  grid-template-columns: 480px 480px;
   grid-gap: 15px 15px;
 }
 
@@ -144,7 +147,6 @@ a {
 
 .achievement img {
   width: 147px;
-  height: 147px;
   border-radius: 75px;
 }
 
