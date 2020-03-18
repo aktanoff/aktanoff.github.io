@@ -127,6 +127,7 @@ a {
   font-size: 22px;
   line-height: 38px;
   color: #ffffff;
+  word-break: break-all;
   white-space: pre-line;
 }
 
