@@ -116,8 +116,6 @@ a {
 }
 
 .scene__descriptionText {
-  width: 890px;
-  height: 332px;
   position: absolute;
   font-family: Gabriela;
   font-size: 22px;
