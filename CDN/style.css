@@ -103,6 +103,7 @@ a {
 
 .scene__description {
   position: relative;
+  width: 950px;
 }
 
 .scene__descriptionText {
@@ -159,4 +160,22 @@ a {
 .achievement__text {
   font-size: 48px;
   line-height: 38px;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.actions a {
+  margin: 5px 10px;
+  display: inline-block;
+  background: #555555;
+  border-radius: 4px;
+  font-size: 34px;
+  line-height: 38px;
+  text-align: center;
+  color: #ffffff;
+  padding: 15px 20px;
 }
