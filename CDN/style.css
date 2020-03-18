@@ -18,9 +18,6 @@ a {
 
 .layout {
   width: 1000px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .header {
@@ -107,6 +104,9 @@ a {
 
 .scene {
   margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .scene__description {
@@ -150,7 +150,7 @@ a {
   margin-top: 37px;
   display: grid;
   grid-template-columns: 495px 495px;
-  grid-gap: 10px 10px;
+  grid-gap: 30px 10px;
 }
 
 .achievement {
