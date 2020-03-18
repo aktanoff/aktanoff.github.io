@@ -37,3 +37,10 @@ html {
 .adventures .adventure {
   margin: 45px 0 0 60px;
 }
+
+.hashtag {
+  margin: 25px 60px -15px;
+  font-size: 42px;
+  line-height: 15px;
+  color: #000000;
+}
