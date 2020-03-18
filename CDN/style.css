@@ -35,17 +35,57 @@ html {
   border-bottom: 1px solid #959393;
 }
 
-.adventures {
-  margin-top: 5px;
-}
-
-.adventures .adventure {
-  margin: 45px 0 0 60px;
-}
-
 .hashtag {
   margin: 25px 60px -15px;
   font-size: 42px;
   line-height: 15px;
   color: #000000;
+}
+
+.adventures {
+  margin-top: 5px;
+}
+
+.adventure {
+  margin: 45px 0 0 60px;
+  display: flex;
+}
+
+.adventure .adventure__picture {
+  width: 200px;
+}
+
+.adventure__picture img {
+  max-width: 100%;
+}
+
+.adventure__main {
+  margin-left: 30px;
+}
+
+.adventure__name {
+  font-size: 30px;
+  line-height: 15px;
+}
+
+.adventure__description {
+  font-size: 18px;
+  line-height: 28px;
+  white-space: pre;
+}
+
+.adventure__hashtags {
+  display: flex;
+  width: 300px;
+}
+
+.adventure__hashtag {
+  display: inline-block;
+  text-decoration: none;
+  background: #b3b3b3;
+  border-radius: 4px;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 18px;
+  color: #ffffff;
 }
