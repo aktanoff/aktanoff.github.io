@@ -124,7 +124,7 @@ a {
   max-width: 890px;
   position: absolute;
   font-family: Gabriela;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 38px;
   color: #ffffff;
   word-break: break-all;
@@ -183,6 +183,7 @@ a {
   font-family: Gabriela;
   font-size: 48px;
   line-height: 38px;
+  margin-top: 10px;
 }
 
 .actions {
@@ -197,9 +198,8 @@ a {
   background: #555555;
   border-radius: 4px;
   font-family: Roboto;
-  font-size: 34px;
-  line-height: 38px;
+  font-size: 29px;
   text-align: center;
   color: #ffffff;
-  padding: 15px 20px;
+  padding: 18px 44px;
 }
