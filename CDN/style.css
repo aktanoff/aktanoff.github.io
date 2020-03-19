@@ -92,6 +92,7 @@ a {
 
 .adventure__hashtags {
   display: flex;
+  flex-flow: wrap;
   width: 300px;
 }
 
