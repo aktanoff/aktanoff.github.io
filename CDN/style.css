@@ -66,6 +66,10 @@ a:focus {
   display: flex;
 }
 
+.adventure:first-child {
+  margin-top: 0;
+}
+
 .adventure .adventure__picture {
   width: 200px;
 }
