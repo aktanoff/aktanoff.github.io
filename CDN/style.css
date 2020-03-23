@@ -8,6 +8,12 @@ html {
 
 a {
   text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover,
+a:focus {
+  opacity: 0.8;
 }
 
 .container {
@@ -43,19 +49,20 @@ a {
 }
 
 .hashtag {
-  margin: 25px 60px -15px;
+  margin: 25px 60px 0;
   font-family: Gabriela;
   font-size: 42px;
-  line-height: 15px;
+  line-height: 30px;
+  height: 30px;
   color: #000000;
 }
 
 .adventures {
-  margin-top: 5px;
+  margin-top: 27px;
 }
 
 .adventure {
-  margin: 45px 0 0 60px;
+  margin: 45px 0 0 70px;
   display: flex;
 }
 
@@ -75,7 +82,7 @@ a {
 .adventure__name {
   font-family: Gabriela;
   font-size: 30px;
-  line-height: 15px;
+  line-height: 24px;
   margin-bottom: 10px;
 }
 
