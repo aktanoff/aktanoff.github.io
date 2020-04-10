@@ -1,5 +1,7 @@
-const observer = new IntersectionObserver((entries, imgObserver) => {
-  if (!entries.length || state.type !== 'adventures' || state.finished) return;
+const observer = new IntersectionObserver((entries) => {
+  if (!entries.length || state.type !== 'adventures' || state.finished) {
+    return;
+  }
 
   const lastEntry = entries[entries.length - 1];
 
@@ -10,7 +12,11 @@ const observer = new IntersectionObserver((entries, imgObserver) => {
 
 function resetObserver() {
   document.querySelectorAll('.adventure').forEach((element) => observer.unobserve(element));
-  observer.observe(document.querySelector('.adventure:last-child'));
+  const lastAdventure = document.querySelector('.adventure:last-child');
+
+  if (lastAdventure) {
+    observer.observe(lastAdventure);
+  }
 }
 
 function createAdventureElement({ scenes, picture, name, description, hashtags }) {
@@ -79,27 +85,26 @@ function createAdventureElement({ scenes, picture, name, description, hashtags }
 }
 
 async function loadAndPutAdventures() {
-  await fetch('/api/adventures/' + state.page)
-    .then((data) => data.json())
-    .then((adventures) => {
-      state.page++;
-      state.elements.push(...adventures);
+  try {
+    const adventures = await getAdventures(state.page);
 
-      if (adventures.length === 0) {
-        state.finished = true;
-      }
-      history.replaceState(state, '', '/');
+    state.page++;
+    state.elements.push(...adventures);
 
-      for (adventure of adventures) {
-        const adventureElement = createAdventureElement(adventure);
-        document.querySelector('.adventures').appendChild(adventureElement);
-      }
+    if (adventures.length === 0) {
+      state.finished = true;
+    }
+    history.replaceState(state, '', '/');
 
-      resetObserver();
-    })
-    .catch(() => {
-      alert('Не удалось загрузить приключения');
-    });
+    for (adventure of adventures) {
+      const adventureElement = createAdventureElement(adventure);
+      document.querySelector('.adventures').appendChild(adventureElement);
+    }
+
+    resetObserver();
+  } catch (error) {
+    alert(error);
+  }
 }
 
 resetObserver();

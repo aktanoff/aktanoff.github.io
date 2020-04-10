@@ -1,62 +1,85 @@
-const adventures = document.querySelector('.adventures');
-const hashtag = document.querySelector('.hashtag');
-const logo = document.querySelector('.logo');
+const adventuresNode = document.querySelector('.adventures');
+adventuresNode.addEventListener('click', async function (event) {
+  const ANCHOR_NODE_NAME = 'A';
+  const HASHTAG_CLASSNAME = 'adventure__hashtag';
 
-adventures.onclick = async function (event) {
-  if (event.target.nodeName != 'A' || event.target.className != 'adventure__hashtag') return;
+  const targetClasses = [...event.target.classList];
+
+  if (!(event.target.nodeName === ANCHOR_NODE_NAME && targetClasses.includes(HASHTAG_CLASSNAME))) {
+    return;
+  }
 
   event.preventDefault();
   const href = event.target.getAttribute('href');
   const tag = href.split('/').pop();
 
-  const hashtag = await fetch(`/api/hashtag/${tag}`)
-    .then((data) => data.json())
-    .catch(() => alert('Не удалось загрузить приключения'));
+  try {
+    const hashtag = await getHashtag(tag);
 
-  state = {
-    type: 'hashtag',
-    name: hashtag.name,
-    tag: hashtag.tag,
-    elements: hashtag.adventures,
-  };
-  changeHandler();
+    imitateTransition(
+      {
+        page: null,
+        finished: null,
+        type: 'hashtag',
+        name: hashtag.name,
+        tag: hashtag.tag,
+        elements: hashtag.adventures,
+      },
+      href,
+      'Список квестов по хэштэгу'
+    );
+  } catch (err) {
+    alert(err);
+  }
+});
 
-  history.pushState(state, '', href);
-  document.title = 'Список квестов по хэштэгу';
-};
-
-logo.onclick = async function (event) {
+const logo = document.querySelector('.logo');
+logo.addEventListener('click', async function (event) {
   event.preventDefault();
+  try {
+    const adventures = await getAdventures(0);
 
-  const adventures = await fetch(`/api/adventures/0`)
-    .then((data) => data.json())
-    .catch(() => alert('Не удалось загрузить приключения'));
+    imitateTransition(
+      {
+        page: 1,
+        finished: false,
+        type: 'adventures',
+        name: null,
+        tag: null,
+        elements: adventures,
+      },
+      '/',
+      'Список квестов'
+    );
+  } catch (err) {
+    alert(err);
+  }
+});
 
-  state = {
-    page: 1,
-    finished: false,
-    type: 'adventures',
-    elements: adventures,
-  };
-  changeHandler();
-
-  history.pushState(state, '', '/');
-  document.title = 'Список квестов';
-};
-
-window.onpopstate = function (event) {
+window.addEventListener('popstate', function (event) {
   state = event.state;
-  changeHandler();
-};
+  renderPage();
+});
 
-function changeHandler() {
+function imitateTransition(newState, newURL, newTitle) {
+  state = newState;
+  renderPage();
+
+  history.pushState(state, '', newURL);
+  document.title = newTitle;
+}
+
+function renderPage() {
+  const hashtag = document.querySelector('.hashtag');
   hashtag.innerText = state.type === 'hashtag' ? `#${state.name}` : '';
 
-  adventures.innerHTML = '';
+  while (adventuresNode.firstChild) {
+    adventuresNode.removeChild(adventuresNode.firstChild);
+  }
 
   for (adventure of state.elements) {
     const adventureElement = createAdventureElement(adventure);
-    document.querySelector('.adventures').appendChild(adventureElement);
+    adventuresNode.appendChild(adventureElement);
   }
 
   if (state.type === 'adventures') {
