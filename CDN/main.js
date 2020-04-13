@@ -11,23 +11,24 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 function resetObserver() {
-  document.querySelectorAll('.adventure').forEach((element) => observer.unobserve(element));
-  const lastAdventure = document.querySelector('.adventure:last-child');
+  const adventureNodes = document.querySelectorAll('.adventure');
 
-  if (lastAdventure) {
-    observer.observe(lastAdventure);
+  adventureNodes.forEach((element) => observer.unobserve(element));
+
+  if (adventureNodes.length) {
+    observer.observe(adventureNodes[adventureNodes.length - 1]);
   }
 }
 
 function createAdventureElement({ scenes, picture, name, description, hashtags }) {
   const adventure = document.createElement('article');
-  adventure.className = 'adventure';
+  adventure.classList.add('adventure');
 
-  const adventure_picture = document.createElement('section');
-  adventure_picture.className = 'adventure__picture';
+  const adventurePicture = document.createElement('section');
+  adventurePicture.classList.add('adventure__picture');
 
-  const adventure_picture_link = document.createElement('a');
-  adventure_picture_link.setAttribute('href', `/scene/${scenes[0].id}`);
+  const adventurePictureLink = document.createElement('a');
+  adventurePictureLink.setAttribute('href', `/scene/${scenes[0].id}`);
 
   const pictureImg = document.createElement('img');
 
@@ -39,47 +40,48 @@ function createAdventureElement({ scenes, picture, name, description, hashtags }
     pictureImg.setAttribute('alt', `Стандартное изображение`);
   }
 
-  adventure_picture_link.appendChild(pictureImg);
-  adventure_picture.appendChild(adventure_picture_link);
-  adventure.appendChild(adventure_picture);
+  adventurePictureLink.appendChild(pictureImg);
+  adventurePicture.appendChild(adventurePictureLink);
+  adventure.appendChild(adventurePicture);
 
-  const adventure_main = document.createElement('section');
-  adventure_main.className = 'adventure__main';
+  const adventureMain = document.createElement('section');
+  adventureMain.classList.add('adventure__main');
 
-  const adventure_name = document.createElement('section');
-  adventure_name.className = 'adventure__name';
+  const adventureName = document.createElement('section');
+  adventureName.classList.add('adventure__name');
 
-  const adventure_name_link = document.createElement('a');
-  adventure_name_link.setAttribute('href', `/scene/${scenes[0].id}`);
-  adventure_name_link.innerText = name;
+  const adventureNameLink = document.createElement('a');
+  adventureNameLink.setAttribute('href', `/scene/${scenes[0].id}`);
+  adventureNameLink.innerText = name;
 
-  adventure_name.appendChild(adventure_name_link);
-  adventure_main.appendChild(adventure_name);
+  adventureName.appendChild(adventureNameLink);
+  adventureMain.appendChild(adventureName);
 
   if (description) {
-    const adventure_description = document.createElement('section');
-    adventure_description.className = 'adventure__description';
-    adventure_description.innerText = description;
-    adventure_main.appendChild(adventure_description);
+    const adventureDescription = document.createElement('section');
+    adventureDescription.classList.add('adventure__description');
+
+    adventureDescription.innerText = description;
+    adventureMain.appendChild(adventureDescription);
   }
 
   if (hashtags.length) {
-    const adventure_hashtags = document.createElement('section');
-    adventure_hashtags.className = 'adventure__hashtags';
+    const adventureHashtags = document.createElement('section');
+    adventureHashtags.classList.add('adventure__hashtags');
 
     for (const { tag, name } of hashtags) {
-      const adventure_hashtag = document.createElement('a');
-      adventure_hashtag.className = 'adventure__hashtag';
-      adventure_hashtag.innerText = `#${name}`;
-      adventure_hashtag.setAttribute('href', `/hashtag/${tag}`);
+      const adventureHashtag = document.createElement('a');
+      adventureHashtag.classList.add('adventure__hashtag');
+      adventureHashtag.innerText = `#${name}`;
+      adventureHashtag.setAttribute('href', `/hashtag/${tag}`);
 
-      adventure_hashtags.appendChild(adventure_hashtag);
+      adventureHashtags.appendChild(adventureHashtag);
     }
 
-    adventure_main.appendChild(adventure_hashtags);
+    adventureMain.appendChild(adventureHashtags);
   }
 
-  adventure.appendChild(adventure_main);
+  adventure.appendChild(adventureMain);
 
   return adventure;
 }
@@ -96,14 +98,14 @@ async function loadAndPutAdventures() {
     }
     history.replaceState(state, '', '/');
 
-    for (adventure of adventures) {
+    for (const adventure of adventures) {
       const adventureElement = createAdventureElement(adventure);
       document.querySelector('.adventures').appendChild(adventureElement);
     }
 
     resetObserver();
   } catch (error) {
-    alert(error);
+    console.error(error);
   }
 }
 

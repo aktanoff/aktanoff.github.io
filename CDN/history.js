@@ -29,7 +29,7 @@ adventuresNode.addEventListener('click', async function (event) {
       'Список квестов по хэштэгу'
     );
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 });
 
@@ -52,7 +52,7 @@ logo.addEventListener('click', async function (event) {
       'Список квестов'
     );
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 });
 
