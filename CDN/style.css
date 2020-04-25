@@ -40,11 +40,11 @@ a:focus {
   align-items: center;
 }
 
-.header a.logo img.emblem {
+.header a.logo img.logo__emblem {
   margin-right: 4px;
 }
 
-.header__line {
+.horizontal-line {
   width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid #959393;
@@ -57,6 +57,15 @@ a:focus {
   line-height: 1.3;
   height: 42px;
   color: #000;
+}
+
+.loading {
+  margin: 5px 70px 0;
+  font-size: 32px;
+}
+
+.loading:after {
+  content: '...';
 }
 
 .adventures {
@@ -129,6 +138,8 @@ a:focus {
 }
 
 .scene__description {
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   width: 950px;
   height: 380px;
