@@ -64,8 +64,8 @@ a:focus {
   font-size: 32px;
 }
 
-.loading:after {
-  content: '...';
+.loading::after {
+  content: '…';
 }
 
 .adventures {
@@ -194,11 +194,13 @@ a:focus {
   border-radius: 75px;
 }
 
-.achievement .achievement_main {
+.achievement .achievement__main {
   margin-left: 12px;
 }
 
 .achievement__got {
+  margin: 0;
+  font-weight: normal;
   font-family: Gabriela, Tahoma, Sans-Serif;
   font-size: 28px;
   line-height: 1.3;
@@ -208,7 +210,7 @@ a:focus {
   font-family: Gabriela, Tahoma, Sans-Serif;
   font-size: 48px;
   line-height: 1.3;
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
 
 .actions {
